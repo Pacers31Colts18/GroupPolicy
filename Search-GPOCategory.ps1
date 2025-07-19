@@ -90,7 +90,6 @@ Generates a CSV file containing:
             switch ($PolicyScope) {
                 'Computer' {
                     foreach ($item in $Category) {
-                        Write-Output "Gathering Computer Settings for $item"
                         if ($reportXML.gpo.computer.extensiondata.extension.policy.category -like "*$item*") {
                             $gpoEnabledOULinks = ($reportXML.GPO.LinksTo | Where-Object { $_.Enabled -eq $true }).SomPath -Join ";"
 
@@ -120,7 +119,6 @@ Generates a CSV file containing:
                     }
                 }
                 'User' {
-                    Write-Output "Gathering User settings for $item"
                     foreach ($item in $Category) {
                         if ($reportXML.gpo.user.extensiondata.extension.policy.category -like "*$item*") {
                             $gpoEnabledOULinks = ($reportXML.GPO.LinksTo | Where-Object { $_.Enabled -eq $true }).SomPath -Join ";"
@@ -151,7 +149,6 @@ Generates a CSV file containing:
                     }
                 }
                 'All' {
-                    Write-Output "Gathering All Settings for $item"
                     foreach ($item in $Category) {
                         if ($reportXML.gpo.user.extensiondata.extension.policy.category -like "*$item*") {
                             $gpoEnabledOULinks = ($reportXML.GPO.LinksTo | Where-Object { $_.Enabled -eq $true }).SomPath -Join ";"
