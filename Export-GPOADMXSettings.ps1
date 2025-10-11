@@ -79,7 +79,6 @@ function Export-GPOADMXSettings {
                 foreach ($category in $categories) {
                     $result = [PSCustomObject]@{
                         Domain      = $domain
-                        GroupPolicy = ""
                         SettingName = ""
                         Class       = ""
                         Key         = ""
@@ -138,7 +137,6 @@ function Export-GPOADMXSettings {
                             foreach ($name in $valueName) {
                                 $result = [PSCustomObject]@{
                                     Domain         = $domain
-                                    GroupPolicy    = "Yes"
                                     SettingName    = $policy.name
                                     Class          = $policy.class
                                     Key            = $policy.key
